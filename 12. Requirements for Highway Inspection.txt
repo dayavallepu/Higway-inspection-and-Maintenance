@@ -1,0 +1,111 @@
+Requirements for Architecture creation:-
+Draw.io
+
+Requirements for Highway Inspection and Maintenance using YOLOv8s-Seg in Google Colab
+
+
+1. Environment Setup
+Ensure that the necessary libraries are installed before running your pipeline.
+
+--> pip install ultralytics pycocotools onnx opencv-python matplotlib pandas tqdm torch torchvision albumentations seaborn
+
+
+2. Hardware Requirements
+
+--> Google Colab with GPU (T4, V100, A100 preferred)
+Storage: Google Drive integration for dataset and model storage
+
+
+
+3. Data Processing Requirements
+
+Data Collection: Image dataset from Google
+
+Annotation: COCO JSON format (using Digital Sreeni)
+
+Augmentation: Digital Sreeni for data enhancement
+
+Dataset Splitting: Train, Test, Val(Dugital sreeni)
+
+
+
+4. Conversion Requirements
+
+--> COCO to YOLOv8 Conversion
+--> Ensure segmentation masks are properly normalized (between 0-1)
+--> Output label files in YOLO format
+
+
+
+5. Model Training Requirements
+
+
+--> Pre-trained Model: yolov8s-seg.pt
+
+Hyperparameters:
+epochs: 15
+imgsz: 640
+batch: 6
+lr0: 0.001
+optimizer: AdamW
+patience: 5
+device: 0 (GPU enabled)
+
+
+
+6. Validation Requirements
+
+Performance Metrics:
+mAP@0.5
+mAP@0.5:0.95
+
+
+7. Testing Requirements
+
+
+Inference on Test Images
+conf: 0.25 (confidence threshold)
+iou: 0.45 (intersection over union threshold)
+
+
+
+8. Model Export Requirements
+
+
+
+ONNX Export:
+model.export(format="onnx", dynamic=True, simplify=True)
+Alternative: Export as TorchScript, CoreML, etc.
+
+
+
+9. Monitoring & Evaluation
+--> Train vs. Validation Loss (to check underfitting/overfitting)
+--> mAP Curves
+--> Prediction Accuracy Analysis
+
+10. Deployment 
+
+Streamlit application:
+
+1. Python Version
+Python 3.8 or later (recommended)
+2. Required Libraries
+need to install the following Python packages:
+pip install streamlit ultralytics opencv-python numpy
+
+
+3. Model Files
+
+YOLOv8 Model Weights: Ensure that the best.pt file is available at the specified path.
+
+
+
+4. Hardware Requirements
+CPU: Minimum dual-core processor
+GPU (Optional but Recommended): NVIDIA GPU with CUDA support for faster inference
+RAM: At least 4GB (8GB+ recommended for smooth operation)
+5. Running the App
+
+Save your script as app.py and run it using:
+streamlit run app.py
