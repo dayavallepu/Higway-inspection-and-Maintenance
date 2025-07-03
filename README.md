@@ -10,7 +10,7 @@ An AI-powered system designed for real-time inspection and maintenance monitorin
 - High accuracy (97%) on test data
 - Supports video stream input for live monitoring
 - Integrated with Streamlit for interactive dashboards
-- Power BI integration for reporting and visualization
+
 
 ## 🛠️ Tech Stack
 
@@ -21,7 +21,7 @@ An AI-powered system designed for real-time inspection and maintenance monitorin
 - YOLO (You Only Look Once) for object detection
 - COCO JSON annotations with polygons for segmentation
 - Streamlit (for deployment and user interface)
-- Power BI (for data visualization)
+
 
 ## 📂 Dataset
 
